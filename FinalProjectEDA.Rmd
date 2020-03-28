@@ -1,20 +1,28 @@
 ---
-title: "R Notebook"
+title: "Final Project Preliminary EDA" 
+subtitle: "Stat 184"
+author: "Arwa Hararwala & Micheal Fannelli"
 output: html_notebook
 ---
 
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+## Data For Project 
 
-Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+- We will be comparing global literacy rates and how they compare with World Happiness Indicies.
+Literacy Data: https://data.worldbank.org/indicator/SE.ADT.LITR.ZS
+World Happiness Index Data: https://www.kaggle.com/unsdsn/world-happiness
 
-```{r}
-plot(cars)
-```
+### Question to Evaluate
+What is the relationship between having a higher literacy rate and the World Happiness Index score that a country or region recieves? 
 
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
 
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
+### Data Source Aquaintence
 
-The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+We found the literacy data from the Worldbank.org website that has numerous global databases. We were able to find the World Happiness Index data from Kaggle.com, which is another popular data site. 
 
-### TXT ME SO I KNOW YOU HAVE ACCESS -ARWA
+The data is updated yearly for both databases and is maintained by the individual websites themselves and their contributors. The Literacy data is from the range 1970- 2019 and the World Happiness data is from 2015-2019. 
+
+They were originally collected as national and global statistics to be used by other data scientists and statisticians to be able to wirte queries and use the avaibile data in making specific analyses. 
+
+For this data set we are looking to evaluate the 2017-2018 data tables in order to have a more concise data set that is able to give us better output values. The Literacy data has 268 cases p, which are the individual countries or regions that are being evaluated. The World Happiness data has 155 cases for 2017 and 156 cases for 2018. Each cases here also represents specific countries or regions. 
+
+The variables we plan to use are for the literacy data we will use all of the varibles, which inclues country, year, and percentage. For the World happiness Index, we plan on using the variables: country/region, GDP per capita, and score. 
