@@ -9,7 +9,7 @@ output: html_notebook
 
 - We will be comparing global literacy rates and how they compare with World Happiness Indicies.
 Literacy Data: https://data.worldbank.org/indicator/SE.ADT.LITR.ZS
-World Happiness Index Data: https://www.kaggle.com/unsdsn/world-happiness
+World Happiness Index Data: https://www.kaggle.com/unsdsn/world-happiness#2017.csv
 
 ### Question to Evaluate
 What is the relationship between having a higher literacy rate and the World Happiness Index score that a country or region recieves? 
@@ -17,12 +17,35 @@ What is the relationship between having a higher literacy rate and the World Hap
 
 ### Data Source Aquaintence
 
+Installing the libraries that are needed to be able to load and preform queries on the dataset.
+```{r}
+library(DataComputing)
+library(tidyverse)
+library(rvest)
+library(lubridate)
+library(dplyr)
+```
+
+
 We found the literacy data from the Worldbank.org website that has numerous global databases. We were able to find the World Happiness Index data from Kaggle.com, which is another popular data site. 
 
 The data is updated yearly for both databases and is maintained by the individual websites themselves and their contributors. The Literacy data is from the range 1970- 2019 and the World Happiness data is from 2015-2019. 
 
 They were originally collected as national and global statistics to be used by other data scientists and statisticians to be able to wirte queries and use the avaibile data in making specific analyses. 
 
-For this data set we are looking to evaluate the 2017-2018 data tables in order to have a more concise data set that is able to give us better output values. The Literacy data has 268 cases p, which are the individual countries or regions that are being evaluated. The World Happiness data has 155 cases for 2017 and 156 cases for 2018. Each cases here also represents specific countries or regions. 
+Getting the tables into RStudio to be able to use them for evaluation. We will do this using the HTML reading functions that we learned for the textbook. 
+```{r}
+literacyURL <- "https://data.worldbank.org/indicator/SE.ADT.LITR.ZS"
+literacyTable <-read_html(literacyURL)
+literacyTable
+```
+
+```{r}
+happinessURL <- "https://www.kaggle.com/unsdsn/world-happiness#2017.csv"
+happinessTable <- read_csv(happinessURL)
+happinessTable
+```
+
+For this data set we are looking to evaluate the 2017 data table. The Literacy data has 268 cases, which are the individual countries or regions that are being evaluated. The World Happiness data has 155 cases for 2017. Each cases here also represents specific countries or regions. 
 
 The variables we plan to use are for the literacy data we will use all of the varibles, which inclues country, year, and percentage. For the World happiness Index, we plan on using the variables: country/region, GDP per capita, and score. 
