@@ -49,3 +49,16 @@ happinessTable
 For this data set we are looking to evaluate the 2017 data table. The Literacy data has 268 cases, which are the individual countries or regions that are being evaluated. The World Happiness data has 155 cases for 2017. Each cases here also represents specific countries or regions. 
 
 The variables we plan to use are for the literacy data we will use all of the varibles, which inclues country, year, and percentage. For the World happiness Index, we plan on using the variables: country/region, GDP per capita, and score. 
+
+```{r}
+#This makes the variable names into the first row name
+colnames(Literacy)<- as.character(unlist(Literacy[1,]))
+Literacy
+```
+
+```{r}
+Cleaned_Literacy <- 
+  Literacy[-c(1),] 
+Cleaned_Literacy
+  
+```
