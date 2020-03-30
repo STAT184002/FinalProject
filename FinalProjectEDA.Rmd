@@ -35,14 +35,14 @@ They were originally collected as national and global statistics to be used by o
 
 Getting the tables into RStudio to be able to use them for evaluation. We will do this using the HTML reading functions that we learned for the textbook. 
 ```{r}
-literacyURL <- "https://data.worldbank.org/indicator/SE.ADT.LITR.ZS"
-literacyTable <-read_html(literacyURL)
-literacyTable
+filename <- file.choose("Literacy Data.csv")
+Literacy <- 
+  data.table::fread(filename)
+Literacy
 ```
 
 ```{r}
-happinessURL <- "https://www.kaggle.com/unsdsn/world-happiness#2017.csv"
-happinessTable <- read_csv(happinessURL)
+happinessTable <- read_csv("2018[1].csv")
 happinessTable
 ```
 
