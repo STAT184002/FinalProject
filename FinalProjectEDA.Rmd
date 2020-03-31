@@ -40,7 +40,8 @@ The variables we plan to use are for the literacy data we will use all of the va
 ### Load Data
 Getting the tables into RStudio to be able to use them for evaluation. We will do this using the reading functions that we learned for the textbook. 
 ```{r}
-Literacy_Data <- read_csv("Literacy Data.csv")
+file_name <- file.choose()
+Literacy_Data <- data.table::fread(file_name)
 Literacy_Data
 ```
 
@@ -73,7 +74,11 @@ Literacy_Data
 
 ```{r}
 Cleaned_Literacy <- 
-  Literacy_Data[-c(1),] 
+  Literacy_Data[-c(1),]%>%
+  select(c(1,63))%>%
+  rename(Country = `Country Name`) %>%
+  rename(Y2018 = `2018`)%>%
+  filter(!is.na(Y2018))
 Cleaned_Literacy
   
 ```
@@ -87,6 +92,11 @@ Happiness DataSet
 ggplot(data=Happiness,aes(x=Country,y=gdp))+geom_point()+aes(colour=rank)
 ```
 
+```{r}
+Cleaned_Literacy %>%
+  ggplot(aes(x = Country, y = Y2018))+
+  geom_point()
+```
 
 
 
