@@ -6,7 +6,6 @@ output: html_notebook
 ---
 
 ## Data For Project 
-Testting # 2
 - We will be comparing global literacy rates and how they compare with World Happiness Indicies.
 Literacy Data: https://data.worldbank.org/indicator/SE.ADT.LITR.ZS
 World Happiness Index Data: https://www.kaggle.com/unsdsn/world-happiness#2017.csv
@@ -24,6 +23,7 @@ library(tidyverse)
 library(rvest)
 library(lubridate)
 library(dplyr)
+library(readr)
 ```
 
 
@@ -33,32 +33,31 @@ The data is updated yearly for both databases and is maintained by the individua
 
 They were originally collected as national and global statistics to be used by other data scientists and statisticians to be able to wirte queries and use the avaibile data in making specific analyses. 
 
-Getting the tables into RStudio to be able to use them for evaluation. We will do this using the HTML reading functions that we learned for the textbook. 
+Getting the tables into RStudio to be able to use them for evaluation. We will do this using the reading functions that we learned for the textbook. 
 ```{r}
-filename <- file.choose("Literacy Data.csv")
-Literacy <- 
-  data.table::fread(filename)
-Literacy
+Literacy_Data <- read_csv("Literacy Data.csv")
+Literacy_Data
 ```
+
 
 ```{r}
 happinessTable <- read_csv("2018[1].csv")
 happinessTable
 ```
 
-For this data set we are looking to evaluate the 2017 data table. The Literacy data has 268 cases, which are the individual countries or regions that are being evaluated. The World Happiness data has 155 cases for 2017. Each cases here also represents specific countries or regions. 
+For this data set we are looking to evaluate the 2018 data table. The Literacy data has 268 cases, which are the individual countries or regions that are being evaluated. The World Happiness data has 155 cases for 2018. Each cases here also represents specific countries or regions. 
 
 The variables we plan to use are for the literacy data we will use all of the varibles, which inclues country, year, and percentage. For the World happiness Index, we plan on using the variables: country/region, GDP per capita, and score. 
 
 ```{r}
 #This makes the variable names into the first row name
-colnames(Literacy)<- as.character(unlist(Literacy[1,]))
-Literacy
+colnames(Literacy_Data)<- as.character(unlist(Literacy_Data[1,]))
+Literacy_Data
 ```
 
 ```{r}
 Cleaned_Literacy <- 
-  Literacy[-c(1),] 
+  Literacy_Data[-c(1),] 
 Cleaned_Literacy
   
 ```
