@@ -97,9 +97,24 @@ Cleaned_Literacy %>%
   ggplot(aes(x = Country, y = Y2018))+
   geom_point()
 ```
+Summary Statisitcs
+```{r}
+SSHappiness <-
+  Happiness %>%
+  summarise(aveScore = mean(Score, na.rm = TRUE),
+            minScore = min(Score, na.rm =TRUE),
+            maxScore = max(Score, na.rm = TRUE))
+SSHappiness
+```
 
-
-
+```{r}
+SSLiteracy <-
+  Cleaned_Literacy %>%
+  summarise(aveLiteracy = mean(Y2018, na.rm=TRUE),
+            minLiteracy = min(Y2018, na.rm = TRUE),
+            maxLiteracy = max(Y2018, na.rm = TRUE))
+SSLiteracy
+```
 
 
 
