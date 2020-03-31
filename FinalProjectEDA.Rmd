@@ -14,8 +14,6 @@ World Happiness Index Data: https://www.kaggle.com/unsdsn/world-happiness#2017.c
 What is the relationship between having a higher literacy rate and the World Happiness Index score that a country or region recieves? 
 
 
-### Data Source Aquaintence
-
 Installing the libraries that are needed to be able to load and preform queries on the dataset.
 ```{r}
 library(DataComputing)
@@ -27,6 +25,7 @@ library(readr)
 library(ggplot2)
 ```
 
+### Dataset Evaluation/ Aquaintence
 
 We found the literacy data from the Worldbank.org website that has numerous global databases. We were able to find the World Happiness Index data from Kaggle.com, which is another popular data site. 
 
@@ -34,6 +33,11 @@ The data is updated yearly for both databases and is maintained by the individua
 
 They were originally collected as national and global statistics to be used by other data scientists and statisticians to be able to wirte queries and use the avaibile data in making specific analyses. 
 
+For this data set we are looking to evaluate the 2018 data table. The Literacy data has 268 cases, which are the individual countries or regions that are being evaluated. The World Happiness data has 155 cases for 2018. Each cases here also represents specific countries or regions. 
+
+The variables we plan to use are for the literacy data we will use all of the varibles, which inclues country, year, and percentage. For the World happiness Index, we plan on using the variables: country/region, GDP per capita, and score. 
+
+### Load Data
 Getting the tables into RStudio to be able to use them for evaluation. We will do this using the reading functions that we learned for the textbook. 
 ```{r}
 Literacy_Data <- read_csv("Literacy Data.csv")
@@ -46,8 +50,10 @@ happinessTable <- read_csv("2018[1].csv")
 happinessTable
 ```
 
+### Clean Happiness Table 
 ```{r}
-happinessTable %>%
+Happiness <-
+  happinessTable %>%
   rename(rank = `Overall rank`) %>%
   rename(Country = `Country or region`) %>%
   rename(gdp = `GDP per capita`) %>%
@@ -55,12 +61,10 @@ happinessTable %>%
   rename(lifeExpectancy = `Healthy life expectancy`) %>%
   rename(freedom = `Freedom to make life choices`) %>%
   rename(corruption = `Perceptions of corruption`)
+Happiness
 ```
 
-For this data set we are looking to evaluate the 2018 data table. The Literacy data has 268 cases, which are the individual countries or regions that are being evaluated. The World Happiness data has 155 cases for 2018. Each cases here also represents specific countries or regions. 
-
-The variables we plan to use are for the literacy data we will use all of the varibles, which inclues country, year, and percentage. For the World happiness Index, we plan on using the variables: country/region, GDP per capita, and score. 
-
+### Tidy Literacy Data 
 ```{r}
 #This makes the variable names into the first row name
 colnames(Literacy_Data)<- as.character(unlist(Literacy_Data[1,]))
