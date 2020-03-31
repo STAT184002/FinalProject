@@ -24,6 +24,7 @@ library(rvest)
 library(lubridate)
 library(dplyr)
 library(readr)
+library(ggplot2)
 ```
 
 
@@ -45,6 +46,17 @@ happinessTable <- read_csv("2018[1].csv")
 happinessTable
 ```
 
+```{r}
+happinessTable %>%
+  rename(rank = `Overall rank`) %>%
+  rename(Country = `Country or region`) %>%
+  rename(gdp = `GDP per capita`) %>%
+  rename(support = `Social support`) %>%
+  rename(lifeExpectancy = `Healthy life expectancy`) %>%
+  rename(freedom = `Freedom to make life choices`) %>%
+  rename(corruption = `Perceptions of corruption`)
+```
+
 For this data set we are looking to evaluate the 2018 data table. The Literacy data has 268 cases, which are the individual countries or regions that are being evaluated. The World Happiness data has 155 cases for 2018. Each cases here also represents specific countries or regions. 
 
 The variables we plan to use are for the literacy data we will use all of the varibles, which inclues country, year, and percentage. For the World happiness Index, we plan on using the variables: country/region, GDP per capita, and score. 
@@ -61,3 +73,21 @@ Cleaned_Literacy <-
 Cleaned_Literacy
   
 ```
+
+
+
+### Plots and Views of Datasets 
+
+```{r}
+ggplot(data=happinessTable,aes(, y = 
+```
+
+
+
+
+
+
+
+
+
+
