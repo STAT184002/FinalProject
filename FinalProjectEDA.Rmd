@@ -92,6 +92,7 @@ Happiness DataSet
 ggplot(data=Happiness,aes(x=Country,y=gdp))+geom_point()+aes(colour=rank)
 ```
 
+Literacy Dataset
 ```{r}
 Cleaned_Literacy %>%
   ggplot(aes(x = Country, y = Y2018))+
