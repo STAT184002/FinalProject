@@ -5,7 +5,7 @@ author: "Arwa Hararwala & Micheal Fannelli"
 output: html_notebook
 ---
 
-## Data For Project 
+### Data For Project 
 - We will be comparing global literacy rates and how they compare with World Happiness Indicies.
 Literacy Data: https://data.worldbank.org/indicator/SE.ADT.LITR.ZS
 World Happiness Index Data: https://www.kaggle.com/unsdsn/world-happiness#2017.csv
