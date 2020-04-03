@@ -136,7 +136,10 @@ For the literacy data, we can see that there are certain glyphs(countries) that 
 
 
 ### Join of Tables for Analysis 
+By using an inner join we are able to merge the Happiness and Cleaned_Literacy tables by the shared varaible(column) of "Country," and remove all of the countries where there are no matches for "Country," so that we only have countries with values rather than NULL in our final analysis. 
 ```{r}
-inner_join()
+Happiness %>%
+  inner_join(Cleaned_Literacy)
+
 ```
 
