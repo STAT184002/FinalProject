@@ -1,0 +1,142 @@
+---
+title: "Final Project" 
+subtitle: "Stat 184"
+author: "Arwa Hararwala & Micheal Fannelli"
+output: html_notebook
+---
+
+### Data Analysis 
+- We will be comparing global literacy rates and how they compare with World Happiness Indicies.
+Literacy Data: https://data.worldbank.org/indicator/SE.ADT.LITR.ZS
+World Happiness Index Data: https://www.kaggle.com/unsdsn/world-happiness#2017.csv
+
+### Question to Evaluate
+What is the relationship between having a higher literacy rate and the World Happiness Index score that a country or region recieves? 
+
+
+Installing the libraries that are needed to be able to load and preform queries on the dataset.
+```{r}
+library(DataComputing)
+library(tidyverse)
+library(rvest)
+library(lubridate)
+library(dplyr)
+library(readr)
+library(ggplot2)
+```
+
+### Dataset Evaluation/Aquaintence
+
+We found the literacy data from the Worldbank.org website that has numerous global databases. We were able to find the World Happiness Index data from Kaggle.com, which is another popular data site. 
+
+The data is updated yearly for both databases and is maintained by the individual websites themselves and their contributors. The Literacy data is from the range 1970- 2019 and the World Happiness data is from 2015-2019. 
+
+They were originally collected as national and global statistics to be used by other data scientists and statisticians to be able to wirte queries and use the avaibile data in making specific analyses. 
+
+For this data set we are looking to evaluate the 2018 data table. The Literacy data has 268 cases, which are the individual countries or regions that are being evaluated. The World Happiness data has 155 cases for 2018. Each cases here also represents specific countries or regions. 
+
+The variables we plan to use are for the literacy data we will use all of the varibles, which inclues country, year, and percentage. For the World happiness Index, we plan on using the variables: country/region, GDP per capita, and score. 
+
+### Load Data
+Getting the tables into RStudio to be able to use them for evaluation. We will do this using the reading functions that we learned for the textbook. 
+```{r}
+file_name <- file.choose()
+Literacy_Data <- data.table::fread(file_name)
+Literacy_Data
+```
+
+
+```{r}
+happinessTable <- read_csv("2018[1].csv")
+happinessTable
+```
+
+### Inspect Loaded Datatables
+```{r}
+glimpse(happinessTable)
+head(happinessTable)
+```
+```{r}
+glimpse(Literacy_Data)
+head(Literacy_Data)
+```
+
+### Data Wrangling of Happiness Table 
+```{r}
+Happiness <-
+  happinessTable %>%
+  rename(rank = `Overall rank`) %>%
+  rename(Country = `Country or region`) %>%
+  rename(gdp = `GDP per capita`) %>%
+  rename(support = `Social support`) %>%
+  rename(lifeExpectancy = `Healthy life expectancy`) %>%
+  rename(freedom = `Freedom to make life choices`) %>%
+  rename(corruption = `Perceptions of corruption`)
+Happiness
+```
+
+### Data Wrangling of Literacy Data 
+```{r}
+#This makes the variable names into the first row name
+colnames(Literacy_Data)<- as.character(unlist(Literacy_Data[1,]))
+Literacy_Data
+```
+
+```{r}
+Cleaned_Literacy <- 
+  Literacy_Data[-c(1),]%>%
+  select(c(1,63))%>%
+  rename(Country = `Country Name`) %>%
+  rename(Y2018 = `2018`)%>%
+  filter(!is.na(Y2018))
+Cleaned_Literacy
+  
+```
+
+
+
+### Preliminary Plots and Views of Datasets 
+
+Happiness DataSet 
+```{r}
+ggplot(data=Happiness,aes(x=Country,y=gdp))+geom_point()+aes(colour=rank)
+```
+
+Literacy Dataset
+```{r}
+Cleaned_Literacy %>%
+  ggplot(aes(x = Country, y = Y2018))+
+  geom_point()
+```
+
+### Summary Statisitcs
+```{r}
+SSHappiness <-
+  Happiness %>%
+  summarise(aveScore = mean(Score, na.rm = TRUE),
+            minScore = min(Score, na.rm =TRUE),
+            maxScore = max(Score, na.rm = TRUE))
+SSHappiness
+```
+
+```{r}
+SSLiteracy <-
+  Cleaned_Literacy %>%
+  summarise(aveLiteracy = mean(Y2018, na.rm=TRUE),
+            minLiteracy = min(Y2018, na.rm = TRUE),
+            maxLiteracy = max(Y2018, na.rm = TRUE))
+SSLiteracy
+```
+
+### Preliminary Observations
+
+For the happiness data we can see that as the rank gets closer to the smaller numbers, the GDP is increasing for that Country. We can also see that each glyph is the individual Countries and that we can evaluate their positions on the graph relative to other countries.
+
+For the literacy data, we can see that there are certain glyphs(countries) that have a much higher literacy percentage rate that onther countries , which have a much lower rate. We can then join both countries by "Country" and see how GDP relates to the literacy rates of each country and evaluate their correlation. 
+
+
+### Join of Tables for Analysis 
+```{r}
+inner_join()
+```
+
