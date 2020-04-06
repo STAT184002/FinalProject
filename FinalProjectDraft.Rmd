@@ -101,14 +101,22 @@ Happiness DataSet
 ```{r}
 ggplot(data=Happiness,aes(x=Country,y=gdp))+geom_point()+aes(colour=rank)
 ```
-
+Happiness Map
+```{r}
+Happiness %>%
+  WorldMap(key = "Country", fill = "Score")
+```
 Literacy Dataset
 ```{r}
 Cleaned_Literacy %>%
   ggplot(aes(x = Country, y = Y2018))+
   geom_point()
 ```
-
+Literacy World Map
+```{r}
+Cleaned_Literacy %>%
+  WorldMap(key = "Country", fill = "Y2018")
+```
 ### Summary Statisitcs
 ```{r}
 SSHappiness <-
