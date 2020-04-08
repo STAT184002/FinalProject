@@ -152,3 +152,11 @@ Happiness_Literacy %>%
   stat_smooth(method = lm)+
   labs(x = "Happiness Score", y = "Literacy Rate", title = "Does Happiness Mean Literacy?")
 ```
+
+
+
+
+
+
+
+### Conclusions and Overall Findings 
