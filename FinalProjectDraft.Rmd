@@ -95,7 +95,7 @@ Cleaned_Literacy
 
 
 
-### Preliminary Plots and Views of Datasets 
+### Plots and Views of Datasets 
 
 Happiness Map
 ```{r}
@@ -108,7 +108,8 @@ Literacy World Map
 Cleaned_Literacy %>%
   WorldMap(key = "Country", fill = "Y2018")
 ```
-### Summary Statisitcs
+
+### Summary Statisitcs for Data Sets
 ```{r}
 SSHappiness <-
   Happiness %>%
@@ -154,9 +155,8 @@ Happiness_Literacy %>%
 ```
 
 
-
-
-
-
-
 ### Conclusions and Overall Findings 
+
+Based off of the Happiness_Literacy table and the plot that was generated, we can see that there is a positive relationship between the happiness scores of a country and their assiciated literacy rate. This means that as the Happiness Score increases, the literacy rate also increases meaning that the graph shows a postive correlation. 
+
+Additioanlly when evaluating the rank variable, we can see that as the happiness score and literacy rate increases, the rank decreases showing an inverse relationship between the happiness score and literacy rate and the variable rank. This is a good thing because haivng a lower rank means that the country has a better score, literacy rate, GDP, social support, life expectancy, freedom, and generosity rates as well. 
