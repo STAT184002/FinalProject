@@ -130,9 +130,9 @@ SSLiteracy
 
 ### Preliminary Observations
 
-For the happiness data we can see that as the rank gets closer to the smaller numbers, the GDP is increasing for that Country. We can also see that each glyph is the individual Countries and that we can evaluate their positions on the graph relative to other countries.
+For the happiness data we can see that as the score gets closer to the smaller numbers, the GDP is decreasing for that country. We can also see in an intitial analysis, that US, Canada, and Australia seem to have the highest Happiness Score based on the color key of the world graph. 
 
-For the literacy data, we can see that there are certain glyphs(countries) that have a much higher literacy percentage rate that onther countries , which have a much lower rate. We can then join both countries by "Country" and see how GDP relates to the literacy rates of each country and evaluate their correlation. 
+For the literacy data, we can see that there are certain countries that have a much higher literacy percentage rate that onther countries , which have a much lower rate. We can then join both countries by "Country" and see how GDP relates to the literacy rates of each country and evaluate their correlation. 
 
 
 ### Join of Tables for Analysis 
@@ -151,7 +151,7 @@ Happiness_Literacy %>%
   ggplot(aes(x = Score, y = Y2018 ))+
   geom_point(aes(color = rank))+
   stat_smooth(method = lm)+
-  labs(x = "Happiness Score", y = "Literacy Rate", title = "Does Happiness Mean Literacy?")
+  labs(x = "Happiness Score", y = "Literacy Rate", title = "Does Happiness Correspond to Literacy?")
 ```
 
 
@@ -159,4 +159,6 @@ Happiness_Literacy %>%
 
 Based off of the Happiness_Literacy table and the plot that was generated, we can see that there is a positive relationship between the happiness scores of a country and their assiciated literacy rate. This means that as the Happiness Score increases, the literacy rate also increases meaning that the graph shows a postive correlation. 
 
-Additioanlly when evaluating the rank variable, we can see that as the happiness score and literacy rate increases, the rank decreases showing an inverse relationship between the happiness score and literacy rate and the variable rank. This is a good thing because haivng a lower rank means that the country has a better score, literacy rate, GDP, social support, life expectancy, freedom, and generosity rates as well. 
+Additionally, when evaluating the rank variable, we can see that as the happiness score and literacy rate increases, the rank decreases showing an inverse relationship between the happiness score and literacy rate and the variable rank. This is a good thing because haivng a lower rank means that the country has a better score, literacy rate, GDP, social support, life expectancy, freedom, and generosity rates. 
+
+Overall, from evaluating these dataset, we can conclude that a higher literacy rate corresponds to a higher happiness score and a lower rank, in general. This was a very interesting analysis because it pertains to our everyday life and the world around us. Evaluating this dataset was able to give us an insight into the effects that education and money has on the happiness and security that is found in society. 
