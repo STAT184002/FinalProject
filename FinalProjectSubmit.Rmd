@@ -4,6 +4,8 @@ subtitle: "Stat 184"
 author: "Arwa Hararwala & Micheal Fannelli"
 output: html_notebook
 ---
+## Link to GitHub Repo
+link: https://github.com/STAT184002/FinalProject.git
 
 ### Data Analysis 
 - We will be comparing global literacy rates and how they compare with World Happiness Indicies.
