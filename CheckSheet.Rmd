@@ -31,28 +31,31 @@ Line numbers : 56-64
 
 
 (A) .Rmd Line number(s) for general data wrangling: 
-
+Line numbers : 67-96
 
 (B) .Rmd Line number(s) for a join operation: 
+Line numbers :140-148
 
+(C) .Rmd Line number(s) for a spread or gather operation (or equivalent): 
 
-(C) .Rmd Line number(s) for a spread or gather operation (or equivalent):
+*(NOT SURE)*
 
 
 (D) .Rmd Line number(s) for use of regular expressions: 
-
+*(NOT SURE)*
 
 (E) .Rmd Line number(s) for use of reduction and/or transformation functions: 
-
+Line numbers :114-131
 
 (F) .Rmd Line number(s) for use of user-defined functions: 
 
-
+*(NOT SURE)*
 (G) .Rmd Line number(s) for use of loops and/or control flow: 
-
+*(NOT SURE)*
 
 (H) .Rmd Line number(s) for use of machine learning (not "wrangling" but scored here): 
 
+*(NOT SURE)*
 
 
 ### Data Visualization (3 of 5 required)
