@@ -95,8 +95,12 @@ Cleaned_Literacy
   
 ```
 
-
- 
+###Another View of the Data
+```{r}
+Cleaned_Literacy %>%
+  spread(key = Country, value = Y2018)
+```
+ This is just another way to look at this data. It's very ugly and should not be used, but allows a simple alternative view that allows for schrolling and an easier way to look at each country indivudally. 
 ### Plots and Views of Original Datasets 
 
 Happiness Map
@@ -137,7 +141,7 @@ Happiness Data:
 SubsetHappiness <-
   Happiness %>%
   filter(grepl("^A", Country, ignore.case = TRUE)) 
-LgerAveHappiness
+SubsetHappiness
 ```
 We can see that there is no relationship between the starting letter of a country to the Happiness Score and therefore this is not a good way to evaluate the country information. 
 
