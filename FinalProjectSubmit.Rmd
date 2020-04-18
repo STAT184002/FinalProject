@@ -96,8 +96,8 @@ Cleaned_Literacy
 ```
 
 
-
-### Plots and Views of Datasets 
+ 
+### Plots and Views of Original Datasets 
 
 Happiness Map
 ```{r}
@@ -129,6 +129,29 @@ SSLiteracy <-
             maxLiteracy = max(Y2018, na.rm = TRUE))
 SSLiteracy
 ```
+
+### Find Countries Starting with "A" to get subset of data (Reg Expressions)
+
+Happiness Data: 
+```{r}
+SubsetHappiness <-
+  Happiness %>%
+  filter(grepl("^A", Country, ignore.case = TRUE)) 
+LgerAveHappiness
+```
+We can see that there is no relationship between the starting letter of a countrie's name to their Score and therefore this is not a good way to evaluate the country information. 
+
+
+Literacy Data:
+```{r}
+SubsetLiteracy <-
+  Cleaned_Literacy %>%
+  filter(grepl("^A", Country, ignore.case = TRUE))
+SubsetLiteracy
+  
+```
+From this data we can also see that there is no relationship between the country starting with letter "A" and their corresponding litercy rates. From this observation, we have decided that we will not be using regular expressions to filter a subset of countries, but rather looks at the trends for the all country data recorded. 
+
 
 ### Preliminary Observations
 
