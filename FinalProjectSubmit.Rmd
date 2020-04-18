@@ -95,12 +95,14 @@ Cleaned_Literacy
   
 ```
 
-###Another View of the Data
+### Another View of the Data Post-Wrangling
+
 ```{r}
 Cleaned_Literacy %>%
   spread(key = Country, value = Y2018)
 ```
- This is just another way to look at this data. It's very ugly and should not be used, but allows a simple alternative view that allows for schrolling and an easier way to look at each country indivudally. 
+ This is another way to look at this data. It is not very uawful and we did not find it as beneficial as the other inspection methods. should not be used, but allows a simple alternative view that allows for schrolling and an easier way to look at each country indivudally. 
+ 
 ### Plots and Views of Original Datasets 
 
 Happiness Map
