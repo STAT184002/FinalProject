@@ -139,7 +139,7 @@ SubsetHappiness <-
   filter(grepl("^A", Country, ignore.case = TRUE)) 
 LgerAveHappiness
 ```
-We can see that there is no relationship between the starting letter of a countrie's name to their Score and therefore this is not a good way to evaluate the country information. 
+We can see that there is no relationship between the starting letter of a country to the Happiness Score and therefore this is not a good way to evaluate the country information. 
 
 
 Literacy Data:
