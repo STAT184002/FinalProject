@@ -123,4 +123,3 @@ SSLiteracy
 For the happiness data we can see that as the rank gets closer to the smaller numbers, the GDP is increasing for that Country. We can also see that each glyph is the individual Countries and that we can evaluate their positions on the graph relative to other countries.
 
 For the literacy data, we can see that there are certain glyphs(countries) that have a much higher literacy percentage rate that onther countries , which have a much lower rate. We can then join both countries by "Country" and see how GDP relates to the literacy rates of each country and evaluate their correlation. 
-
